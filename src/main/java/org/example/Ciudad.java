@@ -22,8 +22,8 @@ public class Ciudad {
         return cubosEnfermedad;
     }
 
-    public void agregarCubosEnfermedad(int cubos) {
-        this.cubosEnfermedad += cubos;
+    public void agregarCubosEnfermedad(int cantidad) {
+        cubosEnfermedad += cantidad;
     }
 
     public void curarEnfermedad() {
@@ -42,8 +42,8 @@ public class Ciudad {
 
     public void mostrarConexiones() {
         System.out.print("Conectada con: ");
-        for (Ciudad ciudad : conexiones) {
-            System.out.print(ciudad.getNombre() + " ");
+        for (Ciudad conexion : conexiones) {
+            System.out.print(conexion.getNombre() + " ");
         }
         System.out.println();
     }
