@@ -23,9 +23,6 @@ public class Tablero {
         return ciudades.get(nombre);
     }
 
-    public Map<String, Ciudad> getCiudades() {
-        return ciudades;
-    }
 
     public void mostrarEstado() {
         for (Ciudad ciudad : ciudades.values()) {
@@ -52,7 +49,7 @@ public class Tablero {
 
     public boolean verificarDerrota() {
         for (Ciudad ciudad : ciudades.values()) {
-            if (ciudad.getCubosEnfermedad() >= 4) { // Cambiar a 4 para la condición de derrota
+            if (ciudad.getCubosEnfermedad() >= 4) { // 4 cubos  para la condición de derrota
                 return true;
             }
         }
