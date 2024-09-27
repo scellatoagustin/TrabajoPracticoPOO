@@ -18,7 +18,7 @@ public class Tablero {
     }
 
     // Metodo privado para inicializar ciudades y sus conexiones
-    private void inicializarCiudades() {
+    public void inicializarCiudades() {
         // Crea las ciudades
         Ciudad madrid = new Ciudad("Madrid");
         Ciudad barcelona = new Ciudad("Barcelona");

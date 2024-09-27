@@ -10,41 +10,15 @@ public class Juego {
     private Scanner scanner; // captura entrada del usuario
 
     public Juego() {
-        tablero = new Tablero(); // Inicializa el tablero del juego
-        scanner = new Scanner(System.in); // Inicializa el escáner para entrada de usuario
-        inicializarCiudades();
+        tablero = new Tablero();
+        scanner = new Scanner(System.in);
+        tablero.inicializarCiudades(); // Llama a la inicialización de ciudades directamente del Tablero
         inicializarJugadores();
-        iniciarInfecciones(); // Inicia el juego con algunas infecciones
+        iniciarInfecciones();  // Inicia el juego con algunas infecciones
     }
 
-    // inicializar las ciudades y sus conexiones
-    private void inicializarCiudades() {
-        // Crea varias instancias de ciudades
-        Ciudad madrid = new Ciudad("Madrid");
-        Ciudad barcelona = new Ciudad("Barcelona");
-        Ciudad paris = new Ciudad("Paris");
-        Ciudad londres = new Ciudad("Londres");
-
-        // Establece conexiones entre las ciudades
-        madrid.agregarConexion(barcelona);
-        madrid.agregarConexion(paris);
-
-        barcelona.agregarConexion(madrid);
-        barcelona.agregarConexion(londres);
-
-        paris.agregarConexion(madrid);
-        paris.agregarConexion(londres);
-
-        londres.agregarConexion(barcelona);
-        londres.agregarConexion(paris);
 
 
-        // Agrega las ciudades al tablero
-        tablero.agregarCiudad(madrid);
-        tablero.agregarCiudad(barcelona);
-        tablero.agregarCiudad(paris);
-        tablero.agregarCiudad(londres);
-    }
 
     //  inicializa los jugadores
     private void inicializarJugadores() {
@@ -101,10 +75,10 @@ public class Juego {
                     List<Ciudad> ciudadesAfectadas = tablero.agregarCubosEpidemia(); // Progresar el juego con epidemias
                     // Verifica condiciones de victoria o derrota
                     if (tablero.verificarVictoria()) {
-                        System.out.println("¡Ganaste! Todos los cubos de enfermedad han sido eliminados."); // Mensaje de victoria
+                        System.out.println("GANASTE Todos los cubos de enfermedad han sido eliminados."); // Mensaje de victoria
                         juegoTerminado = true; // Termina el juego
                     } else if (tablero.verificarDerrota()) {
-                        System.out.print("¡Perdiste! Las siguientes ciudades tienen 4 o más cubos de enfermedad: ");
+                        System.out.print("¡PERDISTE Las siguientes ciudades tienen 4 o más cubos de enfermedad: ");
                         for (Ciudad ciudad : ciudadesAfectadas) {
                             if (ciudad.getCubosEnfermedad() >= 4) {
                                 System.out.print(ciudad.getNombre() + " "); // Muestra las ciudades con condiciones de derrota
