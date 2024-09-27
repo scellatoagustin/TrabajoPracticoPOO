@@ -22,7 +22,7 @@ public class Tablero {
         // Crea las ciudades
         Ciudad madrid = new Ciudad("Madrid");
         Ciudad barcelona = new Ciudad("Barcelona");
-        Ciudad paris = new Ciudad("París");
+        Ciudad paris = new Ciudad("Paris");
         Ciudad londres = new Ciudad("Londres");
 
         // Definir conexiones predefinidas entre las ciudades
@@ -55,9 +55,11 @@ public class Tablero {
 
     // mostrar el estado actual de todas las ciudades en el tablero
     public void mostrarEstado() {
-        for (Ciudad ciudad : ciudades.values()) { // itera sobre todas las ciudades en el mapa
+        for (Ciudad ciudad : ciudades.values()) {// itera sobre todas las ciudades en el mapa
+
             System.out.println(ciudad.getNombre() + ": " + ciudad.getCubosEnfermedad() + " cubos de enfermedad");
             ciudad.mostrarConexiones();
+            System.out.println("-----------");
         }
     }
 

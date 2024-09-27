@@ -22,7 +22,7 @@ public class Juego {
         // Crea varias instancias de ciudades
         Ciudad madrid = new Ciudad("Madrid");
         Ciudad barcelona = new Ciudad("Barcelona");
-        Ciudad paris = new Ciudad("París");
+        Ciudad paris = new Ciudad("Paris");
         Ciudad londres = new Ciudad("Londres");
 
         // Establece conexiones entre las ciudades
@@ -33,8 +33,11 @@ public class Juego {
         barcelona.agregarConexion(londres);
 
         paris.agregarConexion(madrid);
+        paris.agregarConexion(londres);
 
         londres.agregarConexion(barcelona);
+        londres.agregarConexion(paris);
+
 
         // Agrega las ciudades al tablero
         tablero.agregarCiudad(madrid);
@@ -66,6 +69,7 @@ public class Juego {
         while (!juegoTerminado) {
             System.out.println("\n--- Turno de " + jugadorActual.getNombre() + " ---");
             System.out.println("Te encuentras en: " + jugadorActual.getCiudadActual().getNombre()); // Muestra la ciudad actual del jugador
+            System.out.println("-------");
             int accionesRestantes = 2; // cada jugador tiene 2 acciones por turno
 
             // Ciclo para las acciones del jugador
@@ -144,7 +148,9 @@ public class Juego {
         // Verifica si el movimiento es valido
         if (ciudadDestino != null && ciudadActual.getConexiones().contains(ciudadDestino)) {
             jugador.mover(ciudadDestino); // Mueve al jugador a la nueva ciudad
+            System.out.println("------");
             System.out.println("Te has movido a " + ciudadDestino.getNombre());
+            System.out.println("------");
         } else {
             System.out.println("Movimiento no válido.");
         }
